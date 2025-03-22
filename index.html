@@ -6,107 +6,278 @@
 
   <title>Menú Desplegable</title>
   <style>
-    ul {
-      list-style-type: none;
-      padding: 0;
+
+    /* Estilos básicos */
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
+      padding: 0;
+      background-color: #efebd2;
     }
-    li {
-      display: inline-block;
+
+    /* Barra de navegación */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* Logo */
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Barra de búsqueda */
+    .search-bar {
+      width: 50%;
+      display: flex;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #fff; /* Añadir un borde sutil */
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    /* Ícono de carrito */
+    .cart {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Menú de categorías */
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      width: 40%;
+    }
+
+    .menu a {
+      text-decoration: none;
+      padding: 40px 20px;
+      font-size: 16px;
+    }
+
+    .menu a:hover {
+      background-color: #fff; /* Solo el cambio de fondo al pasar el ratón */
+    }
+
+    /* Menú desplegable */
+    .dropdown {
       position: relative;
     }
-    a {
-      text-decoration: none;
-      color: black;
-      padding: 10px;
-      display: block;
-    }
-    li:hover {
-      background-color: lightblue;
-    }
+
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: #f1f1f1;
       min-width: 160px;
       z-index: 1;
     }
-    li:hover .dropdown-content {
+
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
       display: block;
     }
-    .dropdown-content a {
-      padding: 10px;
+
+    .dropdown-content a:hover {
+      background-color: #fff; /* Fondo al pasar el ratón */
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
   </style>
 </head>
 <body>
 
-  <ul>
-    
+  <!-- Barra de navegación -->
+  <nav>
+    <!-- Logo -->
+    <a href="#" class="logo"><img src="imagenes/logo.png" width="200" height="200"></a>
 
-    <li><a href="#">ROPA DE MATERNIDAD</a></li>
-
-    <li><a href="#">TRANSPORTES</a>
-      <div class="dropdown-content">
-        <a href="#">Cunas</a>
-        <a href="#">Carreolas</a>
-        <a href="#">Andaderas</a>
-        <a href="#">Porta bebes</a>
-      </div>
-    </li>
-    <li><a href="#">COLECCIONES</a></li>
-    <div class="dropdown-content">
-    <a href="#">calzado</a>  
-    <a href="#">trajes</a>
+    <!-- Barra de búsqueda -->
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar productos...">
     </div>
-    <li><a href="#">REBAJAS</a></li>
-  </ul>
+
+    <!-- Ícono del carrito -->
+    <div class="cart">
+      <span>🛒</span>
+    </div>
+  </nav>
+
+  <!-- Menú de categorías -->
+  <nav class="menu">
+    <a href="#">Inicio</a>
+  <a href="#">Ofertas</a>
+    
+    <!-- Menú desplegable de categorías -->
+    <div class="dropdown">
+      <a href="#">Categorías</a>
+      <div class="dropdown-content">
+        <a href="#">Ropa de Bebé</a>
+        <a href="#">Accesorios</a>
+        <a href="#">Alimentos y Biberones</a>
+        <a href="#">Juguetes</a>
+        <a href="#">Cochecitos</a>
+      </div>
+    </div>
+
+   <a href="index2.html">Contacto</a>  
+    <a href="#">Sobre nosotros</a>
+  </nav>
+
+</body>
+</html>
 
   <br>
-
-  <title>EL CHIQUI MUNDI DE LOS BABYS</title>
-</head>
-<body>
-
-<center><h1>EL CHIQUI MUNDI DE LOS BABYS</h1></center> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 <br>
-<br>
-<br>
-
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imagen Cuadrada con Zoom</title>
-  <style>
-    .zoom-container {
-      width: 750px; /* Tamaño de la imagen cuadrada */
-      height: 500px; /* Tamaño de la imagen cuadrada */
-      overflow: hidden; /* Evita que se vea fuera del contenedor */
-      margin: 50px auto; /* Centra el contenedor */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Fotos</title>
+    <style>
+        /* Estilo general para el carrusel */
+        .carrusel {
+            width: 100%; /* Ajustamos el carrusel a un ancho más estrecho */
+            height: 80vh; /* Controlamos la altura del carrusel para hacerlo más alto */
+            margin: auto;
+            overflow: hidden; /* Esconde las imágenes fuera del área del carrusel */
+            position: relative;
+        }
 
-    .zoom-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
-      transition: transform 0.5s ease; /* Efecto de transición suave */
-    }
+        .imagenes {
+            display: flex;
+            transition: transform 1s ease-in-out; /* Transición suave entre imágenes */
+        }
 
-    .zoom-container:hover img {
-      transform: scale(1.2); /* Hace el zoom al pasar el ratón */
-    }
-  </style>
+        .imagen {
+            min-width: 100%; /* Asegura que cada imagen ocupe todo el contenedor */
+            box-sizing: border-box;
+        }
+
+        img {
+            width: auto; /* La imagen no será tan ancha */
+            height: 100%; /* Se ajusta a la altura del contenedor */
+            display: block;
+            margin: auto; /* Centra la imagen dentro del contenedor */
+        }
+
+        /* Estilos de los controles */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Opcional: estilos de puntos de navegación */
+        .dots {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .dot {
+            display: inline-block;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="zoom-container">
-    <img src="imagenes/bebe1.jpg">
-  </div>
-<br>
-<img src="imagenes/bebe.jpg" width="350" height="200">   <img src="imagenes/bebe3.avif">    <img src="imagenes/bebe4.png " width="250" height="200"> <img src="imagenes/bebe5.webp" width="200" height="200"> <img src="imagenes/bebe6.webp" width="300" height="200"> <img src="imagenes/bebe7.jpg" width="200" height="200">   <img src="imagenes/bebe9.jpg" width="200" height="200"> <img src="imagenes/bebe8.jpg">
- <a href="index1.html">1<h3>
+    <div class="carrusel">
+        <div class="imagenes">
+            <div class="imagen">
+                <img src="portada1/portada.jpg" alt="Imagen 1">
+            </div>
+            <div class="imagen">
+                <img src="portada1/ropa1.jpg" alt="Imagen 2">
+            </div>
+            <div class="imagen">
+                <img src="portada1/ropa2.jpg" alt="Imagen 3">
+            </div>
+        </div>
+
+        <!-- Controles para mover el carrusel -->
+        <button class="prev" onclick="moverCarrusel(-1)">&#10094;</button>
+        <button class="next" onclick="moverCarrusel(1)">&#10095;</button>
+    </div>
+
+    <div class="dots">
+        <span class="dot" onclick="mostrarImagen(1)"></span>
+        <span class="dot" onclick="mostrarImagen(2)"></span>
+        <span class="dot" onclick="mostrarImagen(3)"></span>
+    </div>
+
+    <script>
+        let indice = 0;
+
+        function moverCarrusel(direccion) {
+            const imagenes = document.querySelector('.imagenes');
+            const totalImagenes = document.querySelectorAll('.imagen').length;
+            indice = (indice + direccion + totalImagenes) % totalImagenes;
+            imagenes.style.transform = `translateX(-${indice * 100}%)`;
+            actualizarPuntos();
+        }
+
+        function mostrarImagen(index) {
+            indice = index - 1;
+            moverCarrusel(0);
+        }
+
+        function actualizarPuntos() {
+            const puntos = document.querySelectorAll('.dot');
+            puntos.forEach((punto, i) => {
+                punto.classList.remove('active');
+                if (i === indice) punto.classList.add('active');
+            });
+        }
+
+        // Mover el carrusel automáticamente cada 3 segundos
+        setInterval(() => {
+            moverCarrusel(1);
+        }, 3000);
+    </script>
+
+</body>
+</html>
+
+ <a href="index1.html">2<h3>
 
 </body>
 </html>
